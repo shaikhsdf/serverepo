@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="table-responsive">
+        {% if course %}
+        <!--Table-->
+        <table class="table">
+      
+          <!--Table head-->
+          <thead>
+            <tr>
+              
+              <th class="th-lg">{{ course.cname }}</th>
+             
+            </tr>
+          </thead>
+           <!--Table body-->
+           <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td> {{ course.cauthor }}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>{{ course.cprice }}r</td>
+            </tr>
+           
+          </tbody>
+          <!--Table body-->
+      
+        </table>
+        <!--Table-->
+
+    
+   
+    
+{% else %}
+   
+          <!--Table head-->
+      
+         
+        <h1>No course available with the ID </h1>
+        <hr />
+    
+    {% endif %}
+      </div>
+
+
+</body>
+</html>
+
+
+
+<a href="store.html"> Edit Course </a>
