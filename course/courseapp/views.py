@@ -2,10 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse, Http404 
 from courseapp.storecourse import newCourse
 from courseapp.models import Courses
+from django.views.decorators.csrf import csrf_protect
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return HttpResponse("Hello.")
 
+@csrf_protect
 def storeCourses(request):
     form = newCourse
 

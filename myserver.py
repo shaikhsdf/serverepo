@@ -19,6 +19,8 @@ class WSGIServer(object):
         listen_socket.bind(server_address)
         # Activate
         listen_socket.listen(self.request_queue_size)
+       # listen_socket.listen(self.request_queue_size)
+        #listen_socket.listen(REQUEST_QUEUE_SIZE)
         # Get server host name and port
         host, port = self.listen_socket.getsockname()[:2]
         self.server_name = socket.getfqdn(host)
@@ -30,7 +32,9 @@ class WSGIServer(object):
         self.application = application
 
     def serve_forever(self):
+
         listen_socket = self.listen_socket
+        
         while True:
             # New client connection
             self.client_connection, client_address = listen_socket.accept()
@@ -58,20 +62,21 @@ class WSGIServer(object):
         self.finish_response(result)
 
     def parse_request(self, text):
-        request_line = text.splitlines()[0]
-        request_line = request_line.rstrip('\r\n')
-        # Break down the request line into components
-        (self.request_method,  # GET
-         self.path,            # /hello
-         self.request_version  # HTTP/1.1
-         ) = request_line.split()
+        try:
+            request_line = text.splitlines()[0]
+        
+            request_line = request_line.rstrip('\r\n')
+            # Break down the request line into components
+            (self.request_method,  # GET
+            self.path,            # /hello
+            self.request_version  # HTTP/1.1
+            ) = request_line.split()
 
+        except IndexError:
+            pass
+        
     def get_environ(self):
         env = {}
-        # The following code snippet does not follow PEP8 conventions
-        # but it's formatted the way it is for demonstration purposes
-        # to emphasize the required variables and their values
-        #
         # Required WSGI variables
         env['wsgi.version']      = (1, 0)
         env['wsgi.url_scheme']   = 'http'

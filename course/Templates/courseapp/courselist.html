@@ -8,6 +8,10 @@
     <title>Document</title>
 </head>
 <body>
+
+    <h1> List of all available courses</h1>
+    <hr/>
+    <div class="container">
     {% if courseList %}
     <div class="table-responsive">
         <table class="table">
@@ -18,8 +22,13 @@
                   <td> {{ c.cname }}</td>
                   <td> <img src="{{ c.cimg.url }}" class="img-thumbnail" /></td>
                 </tr>
-                 {% endfor %}     
+                 {% endfor %}    
+            </tbody>
+        </table>
+    </div> 
     {% else %}
-    <h1> No courses to display </h1>
-    <hr />
+    <h3> No courses to display </h3>
+    
     {% endif %}
+    
+    </div>
