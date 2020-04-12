@@ -14,17 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings 
 from django.conf.urls.static import static
 from courseapp import views
+from rest_framework import routers
+
+
+router = routers.DefaultRouter()
+router.register(r'mycourse', views.CourseViewSet)
 
 urlpatterns = [
+    path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('<int:course_id>/', views.detail, name='detail'),
     path('store/', views.storeCourses, name="storeCourses"),
     path('courses/', views.showCourses, name="showCourses")
+    #path('courseapi/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
 if settings.DEBUG:

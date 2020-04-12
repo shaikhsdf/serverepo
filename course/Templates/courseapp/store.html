@@ -8,20 +8,43 @@
 </head>
 <body>
     <div class="container">   
-    <h1> Course Details Management </h1>
-    <hr/>
-    <div class="container">
-    <form method="POST">
-        <div class="form-group">
-            {% csrf_token %}
-            <div class=" form-control">
-                {{ form.as_p }}
-            </div>         
-           
-            <input type="submit" class="btn btn-outline-info" value="Submit">
-        </div>
-    </form>
+        <h1> Course Details Management </h1>
+        <hr/>
     </div>
-</div>
+    <div class="container">
+        <form class="form-horizontal " method="POST">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="fieldWrapper">
+                {{ form.cname.errors }}
+                <label for="{{ form.cname.id_for_label }}">Course Title:</label>
+                <div>
+                    {{ form.cname }}
+                </div>
+            </div>
+            <div class="fieldWrapper form-inline">
+                {{ form.cimg.errors }}
+                <label for="{{ form.cimg.id_for_label }}">Choose Course Image:</label>
+                <div>
+                    {{ form.cimg }}
+                </div>
+            </div>
+            <div class="fieldWrapper">
+                {{ form.cauthor.errors }}
+                <label for="{{ form.cauthor.id_for_label }}">Author Name:</label>
+                <div>
+                    {{ form.cauthor }}
+                </div>
+            </div>
+            <div class="fieldWrapper">
+                {{ form.cprice.errors }}
+                <label for="{{ form.cprice.id_for_label }}" >Total Amount:</label>
+                <div>
+                    {{ form.cprice }}
+                </div>
+            </div>
+            <input type="submit" class="btn btn-outline-info" value="Submit">            
+        </form>
+    </div>
 </body>
 </html>

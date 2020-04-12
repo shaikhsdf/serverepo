@@ -1,8 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse, Http404 
 from courseapp.storecourse import newCourse
+#from django.models import Courses
 from courseapp.models import Courses
 from django.views.decorators.csrf import csrf_protect
+from rest_framework import viewsets
+from rest_framework import permissions
+from courseapp.serializers import CourseSerializer
+#from course.courseapp.serializers import CourseSerializer
+
+class CourseViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Courses.objects.all()
+    serializer_class = CourseSerializer
+    #permission_classes = [permissions.IsAuthenticated]
 
 def index(request):
     return HttpResponse("Hello.")
@@ -16,7 +29,7 @@ def storeCourses(request):
 
         if form.is_valid():
             form.save(commit=True)
-            return index(requesr)
+            #return index(request)
         else:
             print('Invalid Data')
     
