@@ -5,6 +5,10 @@ class Courses(models.Model):
     cimg = models.ImageField(upload_to='images/') 
     cauthor = models.CharField(max_length=100)
     cprice = models.FloatField()
+
+    #to order the objects by the creation
+    #class Meta:
+        #ordering = ['created']
     def __str__(self):
         return self.cname
 

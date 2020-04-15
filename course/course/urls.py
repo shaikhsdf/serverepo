@@ -26,6 +26,10 @@ router.register(r'mycourse', views.CourseViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    #apiurls
+    path('allcourses/', views.course_list),
+    path('allcourses/<int:pk>/', views.course_detail),
+    #---
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('<int:course_id>/', views.detail, name='detail'),
@@ -33,6 +37,8 @@ urlpatterns = [
     path('courses/', views.showCourses, name="showCourses")
     #path('courseapi/', include('rest_framework.urls', namespace='rest_framework'))
 ]
+
+#urlpatterns = format_suffix_patterns(urlpatterns)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

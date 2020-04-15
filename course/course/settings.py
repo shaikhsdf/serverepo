@@ -30,6 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'DESKTOP-A183DIA',
+    '127.0.0.1',
 ]
 
 
