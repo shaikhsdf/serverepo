@@ -1,13 +1,4 @@
-# serverepo
-#python server with course api
+Django Project for using RESTAPI to create / update / delete courses by using routers and viewset
 
-this is a django app running on custom python wsgi backend server 
-
-
-#requirement
-pip install pillow 
-
-#to run
-python manage.py djangoapp:app
 
 
