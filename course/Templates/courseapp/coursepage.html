@@ -10,26 +10,33 @@
     
 
     {% if courselist %}
-
-    <h1> All courses </h1>
+    <div class="container ">
+    <h1> All Available Courses </h1>
     <hr />
-
-    {% for c in courselist %}
+    </div>
+    <div class="container">
+   
+    <div class="jumbotron">
+        {% for c in courselist %}
         <div class="row">
             <div class="col-md-4">
             <div class="thumbnail">
-                <a href="/w3images/lights.jpg">
-                <img src={{ c.cimg.url }} alt="Lights" style="width:100%">
+                
+                <img src={{ c.cimg.url }} alt="Lights" height="500" width="400">
                 <div class="caption">
-                    <p>{{ c.cname }}</p>
-                    <p>{{ c.cprice }}</p>
-                    <p>by: {{ c.cauthor }} </p>
+                    <h3>{{ c.cname }}</h3>
+                    <h3>{{ c.cprice }}</h3>
+                    <h4>by: {{ c.cauthor }} </h4>
                 </div>
-                </a>
+                
             </div>
             </div>       
-        </div>
-    {% endfor %}
+        
+        {% endfor %}
+    </div>
+    </div>
+    
+    </div>
         
 
 {% else %}
