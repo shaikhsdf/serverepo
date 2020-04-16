@@ -14,6 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#sdf
 TEMPLATE_DIR = os.path.join( BASE_DIR, 'Templates')
 STATIC_DIR = os.path.join( BASE_DIR, 'static')
 MEDIA_DIR = os.path.join( BASE_DIR, 'media')
@@ -28,6 +29,7 @@ SECRET_KEY = 'n4kgnttawhcq!vb+-7il5vknmsn&r2w9jb%*_g@)-mbkd8osbw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#sdf
 ALLOWED_HOSTS = [
     'DESKTOP-A183DIA',
     '127.0.0.1',
@@ -36,6 +38,7 @@ ALLOWED_HOSTS = [
 
 # Application definition
 
+#sdf
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -62,6 +65,7 @@ ROOT_URLCONF = 'course.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        #sdf
         'DIRS': [
             TEMPLATE_DIR,
         ],
@@ -127,16 +131,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+#sdf
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR,]
 
 #Media
-
+#sdf
 MEDIA_ROOT =  MEDIA_DIR
 MEDIA_URL = '/media/'
 
 #Restapi pagination
-
+#sdf
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
