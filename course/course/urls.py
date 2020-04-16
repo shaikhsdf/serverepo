@@ -29,10 +29,9 @@ router.register(r'mycourse', views.CourseViewSet)
 urlpatterns = [
     #sdf
     path('', include(router.urls)),   
-    #path('', views.index, name='index'),    
+    path('home/', views.courseview, name='courseview'),    
 ]
 
-#urlpatterns = format_suffix_patterns(urlpatterns)
 #sdf
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
